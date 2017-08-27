@@ -461,7 +461,7 @@ ul.order li span.count span {
   border-right: 1px solid #000;
   -webkit-appearance: none;
      -moz-appearance: none;
-          appearance: none;
+         /* appearance: none; */
   border-radius: 0;
   background: #fff;
 }
