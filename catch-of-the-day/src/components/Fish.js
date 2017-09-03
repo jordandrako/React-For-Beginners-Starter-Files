@@ -4,23 +4,17 @@ import { formatPrice } from "../helpers";
 class Fish extends Component {
   render() {
     const { details, index } = this.props;
-
     const isAvailable = details.status === "available";
     const buttonText = isAvailable ? "Add To Order" : "Sold Out";
 
     return (
       <li className="menu-fish">
         <img src={details.image} alt={details.name} />
-        {details.name}
         <h3 className="fish-name">
           {details.name}
-          <span className="price">
-            {formatPrice(details.price)}
-          </span>
+          <span className="price">{formatPrice(details.price)}</span>
         </h3>
-        <p>
-          {details.desc}
-        </p>
+        <p>{details.desc}</p>
         <button
           onClick={() => this.props.addToOrder(index)}
           disabled={!isAvailable}
@@ -31,5 +25,11 @@ class Fish extends Component {
     );
   }
 }
+
+Fish.propTypes = {
+  addToOrder: React.PropTypes.func.isRequired,
+  details: React.PropTypes.object.isRequired,
+  index: React.PropTypes.string.isRequired
+};
 
 export default Fish;
